@@ -79,7 +79,8 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn(volup), desc = "Turn device volume up"),
     Key([], "XF86AudioMute", lazy.spawn(mute), desc = "Mutes device"),
     Key([mod, "shift"], "d", lazy.spawn("flatpak run com.discordapp.Discord"), desc = "Launch Discord"),
-    #Key([mod, "control"], "f", lazy.window.toggle.floating(), desc = "Toggles Floating Window"), 
+    Key([mod], "b", lazy.hide_show_bar(), desc="Toggle visibility of Bar"),
+    Key([mod], "f", lazy.window.toggle_floating()),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "x", lazy.window.kill(), desc="Kill focused window"),
