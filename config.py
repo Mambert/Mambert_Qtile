@@ -116,7 +116,12 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#5e81ac", "#5e81ac"], border_width=2),
+    layout.Columns(
+    border_focus_stack="#5e81ac",
+        border_focus = "#bf616a",
+    border_width=2
+    
+    ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -193,10 +198,13 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
+    border_focus = "#5e81ac",
+    border_normal = "#d8dee9",
+    border_width = 2,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
