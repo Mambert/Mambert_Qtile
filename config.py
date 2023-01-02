@@ -148,9 +148,15 @@ screens = [
                 ),
                 widget.GroupBox(
                 foreground = "#88c0d0",
+                    hide_unused = True,
+                    active = "#eceff4",
+                    inactive = "#9297a1",
+                    highlight_color = "#88c0d0",
                 ),
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.WindowTabs(
+                    foreground = "#88c0d0",
+                ),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#2e3440", "#eceff4"),
