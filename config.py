@@ -24,18 +24,21 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile import bar, layout, widget
+import os
+from libqtile import bar, hook, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod1"
+home = os.path.expanduser('~')
 terminal = guess_terminal()
 rofi = "rofi -show drun run"
 firefox = "firefox"
 voldwn = "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 volup = "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 mute = "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -131,7 +134,8 @@ widget_defaults = dict(
     font="sans",
     fontsize=12,
     padding=3,
-    background = ["#2e3440", "#3b4252", "#434c5e", "#4c566a"]
+    #background = ["#2e3440", "#3b4252", "#434c5e", "#4c566a"]
+    background = ["#2e3440", "#2e3440", "#3b4252", "#3b4252", "#434c5e", "#434c5e", "#4c566a", "#434c5e", "#434c5e", "#3b4252", "#3b4252", "#2e3440", "#2e3440"] # I should really just make an init_colors table. But I'm just gonna slap this on github and never have to do it again. 
 )
 extension_defaults = widget_defaults.copy()
 
@@ -167,6 +171,11 @@ screens = [
         ),
     ),
 ]
+
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/autostart.sh'])
 
 # Drag floating layouts.
 mouse = [
