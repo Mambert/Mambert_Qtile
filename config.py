@@ -180,15 +180,15 @@ screens = [
                 foreground = "#ebcb8b"
                 ),
                 widget.GroupBox(
-                foreground = "#88c0d0",
+                foreground = colors[13],
                     hide_unused = True,
-                    active = "#eceff4",
+                    active = colors[6],
                     inactive = "#9297a1",
-                    highlight_color = "#88c0d0",
+                    highlight_color = colors[8],
                 ),
                 widget.Prompt(),
                 widget.WindowTabs(
-                    foreground = "#88c0d0",
+                    foreground = colors[8],
                 ),
                 widget.Chord(
                     chords_colors={
@@ -197,7 +197,7 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.TextBox("Mambert", name="default"),
-                widget.TextBox("Press &lt;M-d&gt; to start rofi", foreground="#5e81ac"),
+                widget.TextBox("Press &lt;M-d&gt; to start rofi", foreground=colors[10]),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
@@ -229,8 +229,8 @@ follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
-    border_focus = "#5e81ac",
-    border_normal = "#d8dee9",
+    border_focus = colors[10],
+    border_normal = colors[4],
     border_width = 2,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
