@@ -38,7 +38,8 @@ firefox = "firefox"
 voldwn = "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 volup = "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 mute = "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-
+picon = "picom --config ~/.config/picom/picom.conf"
+picoff = "killall picom"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -81,6 +82,8 @@ keys = [
     Key([mod, "shift"], "d", lazy.spawn("flatpak run com.discordapp.Discord"), desc = "Launch Discord"),
     Key([mod], "b", lazy.hide_show_bar(), desc="Toggle visibility of Bar"),
     Key([mod], "f", lazy.window.toggle_floating()),
+    Key([mod, "shift"], "f11", lazy.spawn(picon), desc = "Start Picom with config, located at ~/.config/picom/picom.conf"),
+    Key([mod, "shift"], "f12", lazy.spawn(picoff), desc = "Turn off Picom, useful for games or just when it needs a restart"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "x", lazy.window.kill(), desc="Kill focused window"),
@@ -136,12 +139,36 @@ layouts = [
     # layout.Zoomy(),
 ]
 
+#All colors from nordtheme.com. Use them as needed
+
+def init_colors():
+    return [["#2e3440", "#2e3440"], # Color 0, darkest of the "Polar Night" Selection
+            ["#3b4252", "#3b4252"], # Color 1
+            ["#434c5e", "#434c5e"], # Color 2
+            ["#4c566a", "#4c566a"], # Color 3, lightest of the "Ploar Night" Selection
+            ["#d8dee9", "#d8dee9"], # Color 4, Darkest of the "Snow Storm" Selection
+            ["#e5e9f0", "#e5e9f0"], # Color 5
+            ["#eceff4", "#eceff4"], # Color 6, Lightest of the "Snow Storm Selection 
+            ["#8fbcbb", "#8fbcbb"], # Color 7, A slight sage-green-blue color, 1st in the "Frost" Selection
+            ["#88c0d0", "#88c0d0"], # Color 8, The most brightest blue in the Nordic color scheme. Save for bright borders, etc.
+            ["#81a1c1", "#81a1c1"], # Color 9, A slightly pale blue
+            ["#5e81ac", "#5e81ac"], # Color 10, A bold blue, but it's no color 8
+            ["#bf616a", "#bf616a"], # Color 11, red from the "Aurora" Selection
+            ["#d08770", "#d08770"], # Color 12, orange 
+            ["#ebcb8b", "#ebcb8b"], # Color 13, yellow
+            ["#a3be8c", "#a3be8c"], # Color 14, green
+            ["#b48ead", "#b48ead"]] # Color 15, purple
+
+colors = init_colors()
+
+            
 widget_defaults = dict(
     font="sans",
     fontsize=12,
     padding=3,
     #background = ["#2e3440", "#3b4252", "#434c5e", "#4c566a"]
-    background = ["#2e3440", "#2e3440", "#3b4252", "#3b4252", "#434c5e", "#434c5e", "#4c566a", "#434c5e", "#434c5e", "#3b4252", "#3b4252", "#2e3440", "#2e3440"] # I should really just make an init_colors table. But I'm just gonna slap this on github and never have to do it again. 
+    #background = [colors[1], colors[2]] #I'm trying to get this working, I just can't seem to get the formatting to work right. Python doesn't seem to bring up an error, but the bar doesn't show at all. 
+    background = ["#2e3440", "#2e3440", "#3b4252", "#3b4252", "#434c5e", "#434c5e", "#4c566a", "#434c5e", "#434c5e", "#3b4252", "#3b4252", "#2e3440", "#2e3440"] # I should really just make an init_colors table. But I'm just gonna slap this on github and never have to do it again. I don't even use the bar, why am I so concerned about the gradient of this bar???
 )
 extension_defaults = widget_defaults.copy()
 
