@@ -41,6 +41,28 @@ mute = "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 picon = "picom --config ~/.config/picom/picom.conf"
 picoff = "killall picom"
 
+#All colors from nordtheme.com. Use them as needed
+
+def init_colors():
+    return [["#2e3440", "#2e3440"], # Color 0, darkest of the "Polar Night" Selection
+            ["#3b4252", "#3b4252"], # Color 1
+            ["#434c5e", "#434c5e"], # Color 2
+            ["#4c566a", "#4c566a"], # Color 3, lightest of the "Ploar Night" Selection
+            ["#d8dee9", "#d8dee9"], # Color 4, Darkest of the "Snow Storm" Selection
+            ["#e5e9f0", "#e5e9f0"], # Color 5
+            ["#eceff4", "#eceff4"], # Color 6, Lightest of the "Snow Storm Selection 
+            ["#8fbcbb", "#8fbcbb"], # Color 7, A slight sage-green-blue color, 1st in the "Frost" Selection
+            ["#88c0d0", "#88c0d0"], # Color 8, The most brightest blue in the Nordic color scheme. Save for bright borders, etc.
+            ["#81a1c1", "#81a1c1"], # Color 9, A slightly pale blue
+            ["#5e81ac", "#5e81ac"], # Color 10, A bold blue, but it's no color 8
+            ["#bf616a", "#bf616a"], # Color 11, red from the "Aurora" Selection
+            ["#d08770", "#d08770"], # Color 12, orange 
+            ["#ebcb8b", "#ebcb8b"], # Color 13, yellow
+            ["#a3be8c", "#a3be8c"], # Color 14, green
+            ["#b48ead", "#b48ead"]] # Color 15, purple
+
+colors = init_colors()
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -120,8 +142,8 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-    border_focus_stack="#5e81ac",
-        border_focus = "#bf616a",
+    border_focus_stack=colors[10],
+        border_focus = colors[11],
     border_width=2
     
     ),
@@ -139,27 +161,7 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-#All colors from nordtheme.com. Use them as needed
 
-def init_colors():
-    return [["#2e3440", "#2e3440"], # Color 0, darkest of the "Polar Night" Selection
-            ["#3b4252", "#3b4252"], # Color 1
-            ["#434c5e", "#434c5e"], # Color 2
-            ["#4c566a", "#4c566a"], # Color 3, lightest of the "Ploar Night" Selection
-            ["#d8dee9", "#d8dee9"], # Color 4, Darkest of the "Snow Storm" Selection
-            ["#e5e9f0", "#e5e9f0"], # Color 5
-            ["#eceff4", "#eceff4"], # Color 6, Lightest of the "Snow Storm Selection 
-            ["#8fbcbb", "#8fbcbb"], # Color 7, A slight sage-green-blue color, 1st in the "Frost" Selection
-            ["#88c0d0", "#88c0d0"], # Color 8, The most brightest blue in the Nordic color scheme. Save for bright borders, etc.
-            ["#81a1c1", "#81a1c1"], # Color 9, A slightly pale blue
-            ["#5e81ac", "#5e81ac"], # Color 10, A bold blue, but it's no color 8
-            ["#bf616a", "#bf616a"], # Color 11, red from the "Aurora" Selection
-            ["#d08770", "#d08770"], # Color 12, orange 
-            ["#ebcb8b", "#ebcb8b"], # Color 13, yellow
-            ["#a3be8c", "#a3be8c"], # Color 14, green
-            ["#b48ead", "#b48ead"]] # Color 15, purple
-
-colors = init_colors()
 
             
 widget_defaults = dict(
