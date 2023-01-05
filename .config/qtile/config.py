@@ -40,6 +40,7 @@ volup = "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 mute = "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 picon = "picom --config ~/.config/picom/picom.conf"
 picoff = "killall picom"
+fsgui = "flameshot gui"
 
 #All colors from nordtheme.com. Use them as needed
 
@@ -106,6 +107,7 @@ keys = [
     Key([mod], "f", lazy.window.toggle_floating()),
     Key([mod, "shift"], "f11", lazy.spawn(picon), desc = "Start Picom with config, located at ~/.config/picom/picom.conf"),
     Key([mod, "shift"], "f12", lazy.spawn(picoff), desc = "Turn off Picom, useful for games or just when it needs a restart"),
+    Key([mod, "shift"], "s", lazy.spawn(fsgui), desc = "Start Flameshot to take quick screenshot"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "x", lazy.window.kill(), desc="Kill focused window"),
