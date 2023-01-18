@@ -35,8 +35,8 @@ home = os.path.expanduser('~')
 terminal = guess_terminal()
 rofi = "rofi -show drun run"
 firefox = "firefox"
-voldwn = "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-volup = "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+voldwn = "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+volup = "pactl set-sink-volume @DEFAULT_SINK@ +2%"
 mute = "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 picon = "picom --config ~/.config/picom/picom.conf"
 picoff = "killall picom"
@@ -253,7 +253,7 @@ reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
-auto_minimize = True
+auto_minimize = False
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
@@ -266,4 +266,4 @@ wl_input_rules = None
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = "Mambert's Custom Qtile"
