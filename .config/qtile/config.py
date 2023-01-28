@@ -25,6 +25,7 @@
 # SOFTWARE.
 
 import os
+import subprocess
 from libqtile import bar, hook, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -72,7 +73,7 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod], "Tab", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -97,7 +98,7 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "d", lazy.spawn(rofi), desc="Launch Rofi"),
+    Key([mod], "e", lazy.spawn(rofi), desc="Launch Rofi"),
     Key([mod, "shift"], "b", lazy.spawn(firefox), desc="Launch Firefox"),
     Key([], "XF86AudioLowerVolume", lazy.spawn(voldwn), desc = "Turn device volume down"),
     Key([], "XF86AudioRaiseVolume", lazy.spawn(volup), desc = "Turn device volume up"),
@@ -109,7 +110,7 @@ keys = [
     Key([mod, "shift"], "f12", lazy.spawn(picoff), desc = "Turn off Picom, useful for games or just when it needs a restart"),
     Key([mod, "shift"], "s", lazy.spawn(fsgui), desc = "Start Flameshot to take quick screenshot"),
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "x", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
