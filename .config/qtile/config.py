@@ -202,7 +202,7 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.TextBox("Mambert", name="default"),
-                widget.TextBox("Press &lt;M-d&gt; to start rofi", foreground=colors[10]),
+                widget.TextBox("Press &lt;M-e1&gt; to start rofi", foreground=colors[10]),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
