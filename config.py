@@ -42,6 +42,14 @@ mute = "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 picon = "picom --config ~/.config/picom/picom.conf"
 picoff = "killall picom"
 fsgui = "xfce4-screenshooter -r"
+steam = "steam"
+emacs = "emacsclient -c -a 'emacs'"
+dolphin = "dolphin"
+
+#@hook.subscribe.startup_once
+#def autostart():
+    # Autostart as.sh script
+#    os.system("/bin/bash ~/.config/qtile/as.sh")
 
 #All colors from nordtheme.com. Use them as needed
 
@@ -111,10 +119,13 @@ keys = [
     Key([mod, "shift"], "s", lazy.spawn(fsgui), desc = "Start Flameshot to take quick screenshot"),
     # Toggle between different layouts as defined below
     Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "x", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, "shift"], "x", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod, "shift"], "g", lazy.spawn(steam), desc="Launch Steam"),
+    #Key([mod, "shift"], "e", lazy.spawn(emacs), desc="Launch emacs client, or regular emacs if server daemon is down.")
+    Key([mod, "shift"], "m", lazy.spawn(dolphin), desc="Launch Dolphin file manager.")
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -179,7 +190,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(
                 foreground = "#ebcb8b"
