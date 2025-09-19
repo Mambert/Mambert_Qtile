@@ -3,4 +3,3 @@ xrandr --output DisplayPort-0 --primary --mode 1920x1080 --pos 1360x0 --rotate n
 
 nitrogen --restore &
 picom --config ~/.config/picom/picom.conf
-

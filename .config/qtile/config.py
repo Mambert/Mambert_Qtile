@@ -44,6 +44,7 @@ picoff = "killall picom"
 fsgui = "xfce4-screenshooter -r"
 steam = "steam"
 emacs = "emacsclient -c -a 'emacs'"
+dolphin = "dolphin"
 
 #@hook.subscribe.startup_once
 #def autostart():
@@ -123,7 +124,8 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod, "shift"], "g", lazy.spawn(steam), desc="Launch Steam"),
-    Key([mod, "shift"], "e", lazy.spawn(emacs), desc="Launch emacs client, or regular emacs if server daemon is down.")
+    #Key([mod, "shift"], "e", lazy.spawn(emacs), desc="Launch emacs client, or regular emacs if server daemon is down.")
+    Key([mod, "shift"], "m", lazy.spawn(dolphin), desc="Launch Dolphin file manager.")
 ]
 
 groups = [Group(i) for i in "123456789"]
